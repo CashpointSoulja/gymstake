@@ -55,4 +55,12 @@ I fetched the production manifest and every declared icon successfully. I verifi
 
 I keep the final browser evidence in `tests/e2e.mjs`. Its generated screenshots and machine-readable results are local scratch artifacts and are excluded from the repository.
 
-I record the public HTTPS verification separately after publishing; a local production-browser pass does not by itself establish a working public deployment.
+## Public release evidence and verification limit
+
+I published the checked assets through a native Cloudflare deployment on 14 October 2026. The deployment service reported success and confirmed the active HTTPS address, public access mode, and no visitor-supplied credentials. I pushed the matching implementation to the new public repository at commit `d5fde0e`.
+
+I published production script `index-BK7k_nh8.js`, stylesheet `index-BMNkDezJ.css`, and the version-two service-worker cache that passed the local production browser suite.
+
+I attempted an independent request to the public address through the execution environment’s configured network proxy. The proxy rejected the HTTPS tunnel with HTTP 403 because the destination was outside its allowed network policy. That response came from the execution proxy before reaching the app. I did not bypass the restriction.
+
+I therefore distinguish the successful deployment and confirmed public configuration from an independently completed remote browser check. I have not claimed that the external HTTP response, public-browser rendering, or live GPS flow was verified from this restricted environment. The 15 passing browser scenarios ran against the same built assets served locally.
